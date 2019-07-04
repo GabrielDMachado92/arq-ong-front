@@ -1,0 +1,27 @@
+<h1>Lista de Livros</h1>
+
+
+<table *ngIf="livros">
+    <tr>
+            <td>Nome Livro</td>
+            <td>Ano Fabricação Livro</td>
+            <td>Editora Livro</td>
+            <td>Autor Livro</td>
+            <td>Nome Doador</td>
+            <td>Ano de Nascimento do Doador</td>
+            <td>CPF do doador</td>
+            <td>Nome da ONG</td>
+            <td>CNPJ da ONG</td>
+    </tr>
+    <tr *ngFor="let livro of livros" >
+        <td>{{ livro.nome }}</td>
+        <td>{{ livro.anoFabricacao }}</td>
+        <td>{{ livro.editora }}</td>
+        <td>{{ livro.autor }}</td>
+        <td>{{ livro.doador.nome }}</td>
+        <td>{{ livro.doador.anoNascimento }}</td>
+        <td>{{ livro.doador.cpf }}</td>
+        <td>{{ livro.ong.nome }}</td>
+        <td>{{ livro.ong.cnpj }}</td>
+    </tr>
+</table>

@@ -1,0 +1,60 @@
+<h1>Adicionar Livros</h1>
+
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+
+    <h5 *ngIf="success">Your form is valid!</h5>
+
+    <label>
+      Nome:
+      <input #nome type="text" formControlName="nome">
+      <div *ngIf="submitted && messageForm.controls.nome.errors" class="error">
+        <div *ngIf="messageForm.controls.nome.errors.required">Your name is required</div>
+      </div>
+    </label>
+  
+    <label>
+      Ano Fabricação:
+      <textarea #anoFabricacao formControlName="anoFabricacao"></textarea>
+      <div *ngIf="submitted && messageForm.controls.anoFabricacao.errors" class="error">
+        <div *ngIf="messageForm.controls.anoFabricacao.errors.required">A anoFabricacao is required</div>
+      </div>
+    </label>
+
+    <label>
+      Editora:
+      <textarea #editora formControlName="editora"></textarea>
+      <div *ngIf="submitted && messageForm.controls.editora.errors" class="error">
+        <div *ngIf="messageForm.controls.editora.errors.required">A editora is required</div>
+      </div>
+    </label>
+
+    <label>
+      Autor:
+      <textarea #autor formControlName="autor"></textarea>
+      <div *ngIf="submitted && messageForm.controls.autor.errors" class="error">
+        <div *ngIf="messageForm.controls.autor.errors.required">A autor is required</div>
+      </div>
+    </label>
+
+    <label>
+      Doador:
+      <select #doador >
+        <option  [ngValue]="doador" *ngFor="let doador of doadores">{{ doador.nome }}</option>
+      </select>
+    </label>
+    
+    <br>
+
+    <label>
+      Ong:
+      <select #ong >
+        <option  [ngValue]="ong" *ngFor="let ong of ongs">{{ ong.id }}</option>
+      </select>
+    </label>
+
+    <br>
+    <br>
+
+    <input type="submit" button (click) = "addLivro(nome.value, anoFabricacao.value, editora.value,autor.value, ong, doador)" value="Send message" class="cta">
+  
+  </form>
